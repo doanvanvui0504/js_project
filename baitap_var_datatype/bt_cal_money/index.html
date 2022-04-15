@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let money = prompt("Nhập số tiền gửi:");
+        let lai = prompt("Nhập lãi suất:");
+        let year = prompt("Nhập số năm:");
+
+        let totalMoney = money*(1 + (lai/100)*year);
+        document.write("Số tiền cả vốn lẫn lãi nhận được là: ", totalMoney + " đồng");
+    </script>
+</body>
+</html>
