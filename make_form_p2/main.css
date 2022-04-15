@@ -1,0 +1,76 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    margin: auto;
+    width: 400px;
+}
+
+.register__form {
+    width: 100%;
+    display: block;
+    background-color: rgb(248, 239, 159);
+}
+
+.form__header {
+    position: relative;
+    top: 4px;
+    height: 30px;
+    margin: 4px;
+    background-color: rgb(146, 211, 255);
+}
+
+.form__header .header--heading {
+    color: blue;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.form__body {
+    margin-top: 4px;
+}
+
+table {
+    position: relative;
+    top: 4px;
+}
+
+tr {
+    font-size: 14px;
+}
+
+tr td:first-child {
+    padding-left: 4px;
+    color: rgb(0, 0, 218);
+    min-width: 120px;
+}
+
+.address--height {
+    padding: 12px 0;
+}
+
+.position--top-left {
+    display: flex;
+}
+
+.footer {
+    margin: 8px 0;
+}
+
+.footer input {
+    padding: 4px 8px;
+}

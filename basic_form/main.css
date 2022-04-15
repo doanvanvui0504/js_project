@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+form .input__item {
+    margin-bottom: 20px;
+}
+
+form .input__item label {
+    display: block;
+}
+
