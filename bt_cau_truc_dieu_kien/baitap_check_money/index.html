@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Giá hoa quả</h2>
+    <input type="text">
+    <button>Xem giá</button>
+    <div style="margin-top: 20px;">
+        Result: <span class="result"></span>
+    </div>
+
+    <script>
+        let money = '';
+        
+        document.querySelector('input[type="text"]').onchange = function () {
+            let nameofFruit = document.querySelector('input[type="text"]').value;
+            switch (nameofFruit) {
+                case 'Ổi':
+                case "Dưa Hấu":
+                    money = '20000 VNĐ/kg';
+                    break;
+                case 'Táo':
+                case 'Xoài':
+                    money = '30000 VNĐ/kg';
+                    break;
+                case 'Cam':
+                case 'Chôm Chôm':
+                    money = '40000 VNĐ/kg';
+                    break;
+                case 'Măng Cụt':
+                    money = '50000 VNĐ/kg';
+                    break;
+            }
+        }
+
+        const check = document.querySelector('button');
+        const result = document.querySelector('.result');
+
+
+        check.onclick = function () {
+            result.innerText = money;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div + div {
+            margin-top: 20px;
+        }
+        button {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="amount">Amount</label>
+        <input id="amount" type="number">
+    </div>
+
+    <div>
+        <label for="">From Currency</label>
+        <select class="from">
+            <option value="vn">VietNam</option>
+            <option value="usd">USD</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="">To Currency</label>
+        <select class="to">
+            <option value="usd">USD</option>
+            <option value="vn">VietNam</option>
+        </select>
+    </div>
+
+    <button>Convert</button>
+
+    <div>
+        Result:
+        <span class="result"></span>
+    </div>
+
+    <script>
+        const convert = document.querySelector('button');
+        const selectfromElement = document.querySelector('.from');
+        const selecttoElement = document.querySelector('.to');
+        const result = document.querySelector('.result');
+        const amount = document.querySelector('#amount');
+
+        function change_money() {
+            let formValue = selectfromElement.value;
+            let toValue = selecttoElement.value;
+            let Message;
+
+            if(formValue == 'vn' && toValue == 'usd') {
+                    Message = +amount.value / 23000 + " usd";
+            } else {
+                if(formValue == 'usd' && toValue == 'vn') {
+                    Message = +amount.value * 23000 + " vnd";
+                } else {
+                    Message = "Vui lòng chọn loại tiền muốn chuyển đổi hợp lệ";
+                }
+            }
+            result.innerText = Message;
+        }
+
+        convert.onclick = function() {
+            change_money();
+        }
+    </script>
+</body>
+</html>

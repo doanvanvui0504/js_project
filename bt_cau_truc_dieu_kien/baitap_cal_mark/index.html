@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div + div {
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Tính điểm Đại học khối D</h2>
+    <div>
+        <label for="toan">Môn Toán</label>
+        <input id="toan" type="number">
+    </div>
+    <div>
+        <label for="van">Môn Văn</label>
+        <input id="van" type="number">
+    </div>
+    <div>
+        <label for="anh">Môn Anh</label>
+        <input id="anh" type="number">
+    </div>
+
+    <div>
+        <span>Khu vực</span>
+        <select name="area" id="area">
+            <option value="0.75">KV1</option>
+            <option value="0.5">KV2</option>
+            <option value="0.25">KV2-NT</option>
+            <option value="0">KV3</option>
+        </select>
+    </div>
+
+    <div>
+        <button>Tính điểm</button>
+    </div>
+
+    <div>
+        Result:
+        <span class="result"></span>
+        
+    </div>
+
+    <script>
+        const inputElements = document.querySelectorAll('input');
+        const selectValue = document.querySelector('select');
+        const check = document.querySelector('button');
+        const result = document.querySelector('.result');
+
+        check.onclick = function () {
+            let sum = 0 ;
+            for(let inputElement of inputElements) {
+                sum += +inputElement.value;
+            }
+            sum += +selectValue.value;
+            result.innerText = sum;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        Result:
+        <span class="result"></span>
+    </div>
+
+
+    <script>
+        let year = +prompt("Enter the year:");
+
+        let number1 = year % 10;
+        let number2 = year % 12;
+
+        let Can;
+        let Chi;
+
+        const result = document.querySelector('.result');
+
+        switch(number1) {
+            case 0:
+                Can = "Canh";
+                break;
+            case 1:
+                Can = "Tân"
+                break;
+            case 2:
+                Can = "Nhâm"
+                break;
+            case 3:
+                Can = "Quý"
+                break;
+            case 4:
+                Can = "Giáp"
+                break;
+            case 5:
+                Can = "Ất"
+                break;
+            case 6:
+                Can = "Bính"
+                break;
+            case 7:
+                Can = "Đinh"
+                break;
+            case 8:
+                Can = "Mậu"
+                break;
+            case 9:
+                Can = "Kỷ"
+                break;
+        }
+
+        switch(number2) {
+            case 0:
+                Chi = "Thân";
+                break;
+            case 1:
+                Chi = "Dậu"
+                break;
+            case 2:
+                Chi = "Tuất"
+                break;
+            case 3:
+                Chi = "Hợi"
+                break;
+            case 4:
+                Chi = "Tý"
+                break;
+            case 5:
+                Chi = "Sửu"
+                break;
+            case 6:
+                Chi = "Dần"
+                break;
+            case 7:
+                Chi = "Mẹo"
+                break;
+            case 8:
+                Chi = "Thìn"
+                break;
+            case 9:
+                Chi = "Tị"
+                break;
+            case 10:
+                Chi = "Ngọ"
+                break;
+            case 11:
+                Chi = "Mùi"
+                break;
+        }
+
+        result.innerText = Can + " " + Chi;
+    </script>
+</body>
+</html>

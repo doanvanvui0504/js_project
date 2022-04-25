@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        Result:
+        <span class="result"></span>
+    </div>
+
+    <script>
+        let height = +prompt("Enter the height:");
+        let weight = +prompt("Enter the weight");
+
+        let bmi = weight / (height ** 2);
+        const result = document.querySelector('.result');
+
+        if (bmi < 16) {
+            result.innerText = "Gầy độ III";
+        } else {
+            if(16 <= bmi && bmi < 17) {
+                result.innerText = "Gầy độ II";
+            } else {
+                if(17 <= bmi && bmi < 18.5) {
+                    result.innerText = "Gầy độ I";
+                } else {
+                    if(18.5 <= bmi && bmi < 25) {
+                        result.innerText = "Bình thường";
+                    } else {
+                        if(25 <= bmi && bmi < 30) {
+                            result.innerText = "Thừa cân";
+                        } else {
+                            if(30 <= bmi && bmi < 35) {
+                                result.innerText = "Béo phì độ I";
+                            } else {
+                                if(35 <= bmi && bmi < 40) {
+                                    result.innerText = "Béo phì độ II";
+                                } else {
+                                    if(bmi > 40) {
+                                        result.innerText = "Béo phì độ III";
+                                    } else {
+                                        result.innerText = "Vui lòng nhập chiều cao và cân nặng hợp lệ";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+    </script>
+</body>
+</html>
