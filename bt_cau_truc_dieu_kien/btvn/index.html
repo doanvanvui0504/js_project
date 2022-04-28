@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTVN</title>
+</head>
+<body>
+    
+    <input id="a" type="number">
+    <input id="b" type="number">
+
+    <button>Click</button>
+
+    <h1 id="result"></h1>
+
+    <script>
+
+        // Bài 1: Câu lệnh để hiển thị 1 hộp thoại là: alert(string)
+        // alert("My name is Vui");
+
+
+        // Bài 2: Câu lệnh để nhận 1 giá trị từ hộp thoại là: prompt(string) 
+        // let number = +prompt("Enter the number:");
+        // let binhPhuong = number ** 2;
+        // alert(`Bình phương của ${number} là: ${binhPhuong}`)
+
+
+        // Bài 3: Viết các bước để code nhận a và b từ 2 ô input và hiển thị S = a*b ra thẻ h1
+        /* 
+            Bước 1: Tạo ra 2 ô input và 1 thẻ h1 và đặt id hợp lý cho nó.
+
+            Bước 2: Trỏ đến 2 ô input và thẻ h1 bằng cách document.getElenmentById
+
+            Bước 3: Bắt được sự kiện onchange trên 2 ô input rồi lấy giá trị gán vào 2 biến a và b.
+            
+            
+            Bước 4: Bắt sự kiện click vào button để thực hiện {
+
+                Khởi tạo biến S = a*b. Sau đó trỏ đến thẻ h1 và innerText để hiển thị kết quả.
+
+            }
+
+        */
+        
+        // CODE BÀI 3
+
+        // const input1 = document.getElementById('a');
+        // const input2 = document.getElementById('b');
+
+        // const result = document.getElementById('result');
+        // const btn = document.querySelector('button');
+        // console.log(result);
+        
+        // let a;
+        // let b;
+
+        // input1.onchange = function() {
+        //     a = input1.value;
+        // }
+
+        // input2.onchange = function() {
+        //     b = input2.value;
+        // }
+
+        // btn.onclick = function() {
+        //     let S = a*b;
+        //     result.innerHTML = S;
+        // }
+
+
+        // Bài 4: Câu e
+        // function tamGiac(a,b,c) {
+
+        //     if(a <= 0 || b <= 0 || c <= 0) {
+        //         console.log("Khong phai");
+        //     } else {
+        //         if(a+b > c && a+c > b && b+c > a) {
+        //             console.log("Phai");
+        //             if(a == b && a == c) {
+        //                 console.log("Tam giác đều");
+        //             };
+
+        //             if (a == b || a == c || b == c) {
+        //                 console.log("Tam giác cân");
+        //             };
+
+        //             if ((a**2 + b**2 == c**2) || (a**2 + c**2 == b**2) ||(c**2 + b**2 == a**2)) {
+        //                 console.log("Tam giác vuông");
+        //             }
+        //         } else {
+        //             console.log("Khong phai");
+        //         }
+        //     }
+        // }
+
+
+
+        // Bài 5: Giải phương trình bậc 2:
+        function solvePT(a, b, c) {
+            if (a == 0) {
+                if(b == 0) {
+                    if (c == 0) {
+                        console.log("Phuong trinh co vo so nghiem");
+                    } else {
+                        console.log("Phuong trinh vo nghiem");
+                    }
+                } else {
+                    let x = -c/b;
+                    console.log(`Phuong trinh co 1 nghiem x = ${x}`);
+                }
+            } else {
+                let delta = b**2 - 4*a*c;
+                if (delta == 0) {
+                    let x = -b/(2*a);
+                    console.log(`Phuong trinh co nghiem kep la x = ${x}`);
+                } else if (delta < 0) {
+                    console.log("Phuong trinh vo nghiem");
+                } else {
+                    let x1 = (-b + Math.sqrt(delta))/(2*a);
+                    let x2 = (-b - Math.sqrt(delta))/(2*a);
+                    console.log(`Phuong trinh co 2 nghiem la x1 = ${x1} va x2 = ${x2}`);
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>
