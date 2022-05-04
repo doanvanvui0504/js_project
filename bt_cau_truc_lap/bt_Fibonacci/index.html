@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let number;
+        let arrNum = [1, 1];
+
+        do {
+            number =+prompt("Nhập số lớn hơn 2:")
+        } while (number <= 2)
+
+        for (let i = 2; i < number; i++ ) {
+            arrNum[i] = arrNum[i-1] + arrNum[i-2];
+        }
+        
+        document.write(`${number} số đầu tiên của dãy Fibonacci là ${arrNum}`);
+    </script>
+</body>
+</html>

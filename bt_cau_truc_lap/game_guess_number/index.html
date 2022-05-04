@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+        }
+
+        button {
+            margin: auto;
+            height: 50px;
+            width: 100px;
+            cursor: pointer;
+            border: none;
+            background-color: yellow;
+            color: black;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <button>Chơi</button>
+
+    <script>
+        const btn = document.querySelector('button');
+        btn.onclick = function() {
+            guessNumber();
+        }
+
+        function guessNumber() {
+            let min = +prompt("Nhập vào số nhỏ nhất:");
+            let max = +prompt("Nhập vào số lớn nhất:");
+
+            let arrNumber = [];
+            for (let i = min; i <= max; i++) {
+                arrNumber.push(i);
+            }
+            alert(`Số bạn cần đoán thuộc đoạn ${arrNumber}`);
+            
+            let trueNumber = arrNumber[Math.floor(Math.random()*(arrNumber.length))];
+            console.log(trueNumber);
+            
+            let guessNumber;
+            let index = 0;
+            
+            do {
+                index++;
+                if(index == 4) break;
+                guessNumber = +prompt("Nhập vào số của bạn:");
+            } while (trueNumber != guessNumber);
+            
+            if (index == 4) {
+                alert("Bạn đã đoán sai rồi");
+            } else {
+                alert("Bạn đã đoán đúng, xin chúc mừng");
+            }
+        }
+    </script>
+</body>
+</html>
