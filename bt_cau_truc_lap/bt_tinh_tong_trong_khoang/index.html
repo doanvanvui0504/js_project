@@ -15,17 +15,16 @@
         let sum = 0;
 
         if(number1 == number2) {
+            sum = number1 + number2;
             console.log(sum);
         } else if (number1 < number2) {
-            number = number1 + 1;
-            for (;number < number2; number++) {
-                sum += number;
+            for (;number1 <= number2; number1++) {
+                sum += number1;
             }
             console.log(sum);
         } else {
-            number = number2 + 1;
-            for (;number < number1; number++) {
-                sum += number;
+            for (;number2 <= number1; number2++) {
+                sum += number2;
             }
             console.log(sum);
         }
