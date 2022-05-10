@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creat Array</title>
+</head>
+<body>
+    <input type="text">
+    <button class="add">Add</button>
+    <button class="display">Display</button>
+    <div class="result"></div>
+
+    <script>
+        const addBtn = document.querySelector('.add');
+        const displayBtn = document.querySelector('.display');
+        const input = document.querySelector('input');
+        const result = document.querySelector('.result');
+        let arr = [];
+
+        addBtn.onclick = function () {
+            addItem();
+        }
+
+        displayBtn.onclick = function () {
+            displayElement();
+        }
+
+        function addItem() {
+            arr.push(input.value);
+            input.value = '';
+        }
+
+        let text = '';
+        function displayElement() {
+            text = '';
+            for(let i = 0; i < arr.length; i++) {
+                text += `Element${i} = ${arr[i]} <br>`;
+            }
+            result.innerHTML = text;
+        }
+    </script>
+</body>
+</html>

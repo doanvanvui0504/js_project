@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm giá trị nhỏ nhất</title>
+</head>
+<body>
+    <button>Check</button>
+    <div class="result"></div>
+    <div class="result1"></div>
+
+    <script>
+        const checkBtn = document.querySelector('button');
+        const result = document.querySelector('.result');
+        const result1 = document.querySelector('.result1');
+        let arr = [];
+
+        checkBtn.onclick = function () {
+            checkMin();
+        }
+        
+        function checkMin() {
+            let min = arr[0];
+            let position = '';
+        
+            arr.forEach(function (element, index) {
+                if(min >= element) {
+                    min = element;
+                }
+            })
+            
+            arr.forEach(function (element, index) {
+                if(min == element) {
+                    position += index + " ";
+                }
+            })
+            result.innerHTML = `Số nhỏ nhất trong mảng là: ${min} tại các vị trí ${position}`;
+            result1.innerHTML = arr;  
+        }
+
+        let index = Math.random()*100;
+        for (let i = 0; i < 15; i++) {
+            arr.push(Math.floor(Math.random()*index));
+        }
+        
+    </script>
+</body>
+</html>

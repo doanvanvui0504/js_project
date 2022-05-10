@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cờ Caro</title>
+</head>
+<body>
+    <h3>Caro Game Simple</h3>
+    <p id="carogame"></p>
+    <input type="button" value="Change Value">
+
+    <script>
+        const changeBtn = document.querySelector('input');
+        let p = document.getElementById("carogame");
+        let board = [];
+        let data = "";
+
+        for (let i = 0; i < 5; i++) {
+            board[i] = new Array(0, 0, 0, 0, 0);
+        }
+
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&ensp;";
+            }
+        }
+
+        data += "<br/>";
+        p.innerHTML = data;
+
+        changeBtn.onclick =function () {
+            changeValue();
+        }
+
+        function changeValue() {
+            let x = +prompt("Enter the key x:");
+            let y = +prompt("Enter the key y:");
+            let data = '';
+
+            board[x][y] = "x";
+
+            for (let i = 0; i < 5; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 5; j++) {
+                    data += board[i][j] + "&ensp;";
+                }
+            }
+            p.innerHTML = data;
+        }
+    </script>
+</body>
+</html>

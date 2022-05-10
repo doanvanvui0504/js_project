@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm giá trị</title>
+</head>
+<body>
+    <input type="text">
+    <button>Check</button>
+    <div class="result"></div>
+    <div class="result1"></div>
+
+    <script>
+        const input = document.querySelector('input');
+        const checkBtn = document.querySelector('button');
+        const result = document.querySelector('.result');
+        const result1 = document.querySelector('.result1');
+        let arr = [];
+
+        checkBtn.onclick = function () {
+            checkValue();
+        }
+
+        for (let i = 0; i < 20; i++) {
+            arr.push(Math.floor(Math.random()*21));
+        }
+        
+        function checkValue() {
+            let position = '';
+            arr.forEach(function (element, index) {
+                if (element == input.value) {
+                    position += index + " ";
+                }
+            })
+            if (position === '') {
+                result.innerHTML = `${input.value} không có trong mảng`;
+            } else {
+                result.innerHTML = `${input.value} có mặt tại các vị trí ${position}`;
+            }
+            result1.innerText = arr; 
+        }
+    </script>
+</body>
+</html>
