@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <h3>Game Tic Tac Toe</h3>
+    <p id="carogame"></p>
+    <input type="button" value="Change Value">
+    <div class="result" style="margin-top:20px;"></div>
+
+    <script>
+        const changeBtn = document.querySelector('input');
+        const result = document.querySelector('.result');
+        let p = document.getElementById("carogame");
+        let board = [];
+        let data = "";
+
+        for (let i = 0; i < 5; i++) {
+            board[i] = new Array(".", ".", ".", ".", ".");
+        }
+
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&emsp;&emsp;";
+            }
+        }
+
+        data += "<br/>";
+        p.innerHTML = data;
+
+        changeBtn.onclick =function () {
+            changeValue();
+        }
+
+        let count = 0;
+        let x;
+        let y;
+        let arrOld = [];
+        function changeValue() {
+            newElement = [x,y];
+            arrOld.push(newElement);
+            x = parseInt(prompt("Enter the key x:"));
+            y = parseInt(prompt("Enter the key y:"));
+            let data = '';
+
+            let isExist = false;
+            for (let i = 0; i < arrOld.length; i++) {
+                if(arrOld[i] == `${x},${y}`) {
+                    isExist = true;
+                    break;
+                }
+            }
+
+            while (isExist) {
+                x = +prompt("Nhập giá trị khác cho x:");
+                y = +prompt("Nhập giá trị khác cho y:");
+                isExist = false;
+                for (let i = 0; i < arrOld.length; i++) {
+                    if(arrOld[i] == `${x},${y}`) {
+                        isExist = true;
+                        break;
+                    }
+                }
+            }
+
+            if(count % 2 == 0) {
+                board[x][y] = "x";
+                count++;
+            } else {
+                board[x][y] = "o";
+                count++;
+            }
+
+            for (let i = 0; i < 5; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 5; j++) {
+                    data += board[i][j] + "&emsp;&emsp;";
+                }
+            }
+            p.innerHTML = data;
+
+            check();
+
+            // Check xem có người win chưa
+            function check() {
+                for (let i = 0; i < 5; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        if (board[i][j] == board[i][j+1] && board[i][j] == board[i][j+2] && board[i][j] == "x") {
+                            result.innerText = "Kết thúc, người chơi 1 đã thắng!!!";
+                        } else if (board[i][j] == board[i][j+1] && board[i][j] == board[i][j+2] && board[i][j] == "o"){
+                            result.innerText = "Kết thúc, người chơi 2 đã thắng!!!";
+                        }        
+                    }
+                }
+                for (let i = 0; i < 3; i++) {
+                    for (let j = 0; j < 5; j++) {
+                        if (board[i][j] == board[i+1][j] && board[i][j] == board[i+2][j] && board[i][j] == "x") {
+                            result.innerText = "Kết thúc, người chơi 1 đã thắng!!!";
+                        } else  { 
+                            if (board[i][j] == board[i+1][j] && board[i][j] == board[i+2][j] && board[i][j] == "o") {
+                                result.innerText = "Kết thúc, người chơi 2 đã thắng!!!";
+                            }
+                        }
+                    }
+                }
+                for (let i = 0; i < 3; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        if (board[i][j] == board[i+1][j+1] && board[i][j] == board[i+2][j+2] && board[i][j] == "x") {
+                            result.innerText = "Kết thúc, người chơi 1 đã thắng!!!";
+                        } else {
+                            if (board[i][j] == board[i+1][j+1] && board[i][j] == board[i+2][j+2] && board[i][j] == "o") {
+                                result.innerText = "Kết thúc, người chơi 2 đã thắng!!!";
+                            }
+                        } 
+                    }
+                }
+                for (let i = 2; i < 5; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        if (board[i][j] == board[i-1][j+1] && board[i][j] == board[i-2][j+2] && board[i][j] == "x") {
+                            result.innerText = "Kết thúc, người chơi 1 đã thắng!!!";
+                        } else {
+                            if (board[i][j] == board[i-1][j+1] && board[i][j] == board[i-2][j+2] && board[i][j] == "o") {
+                                result.innerText = "Kết thúc, người chơi 2 đã thắng!!!";
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    </script>
+</body>
+</html>

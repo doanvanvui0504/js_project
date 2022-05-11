@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faking TextArea on Typing</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Type anything slowly</h1>
+    <textarea style="margin: 20px 41%;" name="text" cols="30" rows="8"></textarea>
+
+    <script>
+        const textarea = document.querySelector('textarea');
+        const myString = "TÔI LÀ MỘT ĐỨA NGỐC HiHi!!!";
+        textarea.oninput = function () {
+            let string = '';
+            for (let i = 0; i <= textarea.value.length - 1; i++) {
+                string += myString[i];
+            }
+            textarea.value = string;
+            if (textarea.value.length == 27) {
+                textarea.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
