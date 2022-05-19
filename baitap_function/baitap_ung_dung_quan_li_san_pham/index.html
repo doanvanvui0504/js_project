@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        #input {
+            padding: 8px;
+            width: 60%;
+        }
+        #submit {
+            padding: 8px;
+        }
+        ul {
+            padding-left: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input" placeholder="New Product">
+    <button id="submit">ADD</button>
+    <ul id="root"></ul>
+
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        const submit = $('#submit');
+        const input = $('#input');
+        const root = $('#root');
+
+        const app = (() => {
+            const products = ['BMW', 'IPhone 8', 'LED RGB'];
+
+            return {
+                add(product) {
+                    products.push(product);
+                },
+                delete(index) {
+                    products.splice(index, 1);
+                },
+                edit(index) {
+                    products[index] = prompt("Sửa tên sản phẩm");
+                },
+                handleDelete(e) {
+                    const deleteBtn = e.target.closest(".delete");
+                    if(deleteBtn) {
+                        const index = deleteBtn.dataset.index;
+                        this.edit(index);
+                        this.render();
+                    }
+                },
+                handleEdit(e) {
+                    const editBtn = e.target.closest(".edit");
+                    if(editBtn) {
+                        const index = editBtn.dataset.index;
+                        this.edit(index);
+                        this.render();
+                    }
+                },
+                render() {
+                    const html = products.map((product, index) => `
+                        <li style="margin-top: 20px; display: flex; justify-content: space-between;">
+                        <span style="width: 250px">${product}</span>
+                        <span class="edit" data-index="${index}"><button>Edit</button></span>
+                        <span class="delete" data-index="${index}"><button>Delete</button></span>
+                        </li>`
+                    ).join('');
+
+                    root.innerHTML = html;
+                },
+                init() {
+                    // Handle DOM events
+                    submit.onclick = () => {
+                        const product = input.value;
+                        this.add(product);
+                        this.render();
+                        
+                        input.value = "";
+                        input.focus();
+                    }
+
+                    root.onclick = this.handleDelete.bind(this);
+                    root.onclick = this.handleEdit.bind(this);
+
+                    this.render();
+                }
+            }
+        })()
+
+        app.init();
+    </script>
+</body>
+</html>

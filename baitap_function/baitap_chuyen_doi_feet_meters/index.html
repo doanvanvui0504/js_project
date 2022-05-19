@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        function footToMeter(foot) {
+            let meter = 0.305 * foot;
+            return meter;
+        }
+
+        function meterToFoot(meter) {
+            let foot = 3.279 * meter;
+            return foot;
+        }
+
+        console.log(footToMeter(1)); // 0.035meters
+        console.log(footToMeter(2)); // 0.610meters
+        console.log(footToMeter(9)); // 2.745meters
+        console.log(footToMeter(10)); // 3.050meters
+
+        console.log(meterToFoot(20)); // 65.574foot
+        console.log(meterToFoot(25)); // 81.967foot
+        console.log(meterToFoot(60)); // 196.721foot
+        console.log(meterToFoot(65)); // 213.115foot
+    </script>
+</body>
+</html>

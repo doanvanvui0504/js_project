@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        function Palindrome(string) {
+            let newString = string;
+            let arrString = newString.split('');
+            if(arrString[0] == arrString[arrString.length - 1]) {
+                arrString.pop();
+                arrString.shift();
+                if(arrString.length > 1) {
+                    return (true && Palindrome(arrString.join("")));
+                } else {
+                    return true
+                }
+            } else {
+                return false;
+            }
+        };
+
+        console.log(Palindrome('truehaaheurt'));
+    </script>
+</body>
+</html>

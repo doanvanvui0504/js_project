@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện Tập</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // ************ BÀI 1 ************
+        // function bai1(num1, num2) {
+        //     if(num1 > num2) {
+        //         alert("Tham số 1 lớn hơn tham số 2")
+        //     } else {
+        //         return num1 + num2;
+        //     }
+        // }
+
+        // console.log(bai1(3,2));
+
+        
+
+        // ************ BÀI 2 ************
+        // let arr1 = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe ', 'Regulus'];
+        // let arr2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+        // function bai2(string) {
+        //     let index;
+        //     for (let i = 0; i < arr1.length; i++) {
+        //         if (arr1[i] == string) {
+        //             index = i;
+        //         }
+        //     }
+        //     return (typeof index) === 'undefined' ? 'Không có ngôi sao phù hợp' : arr2[index];
+        // }
+
+        // let string = prompt('Nhập vào ngôi sao của bạn:');
+        // console.log(bai2(string))
+
+
+
+        // ************ BÀI 3 ************
+        // function bai3(number) {
+        //     return number**2
+        // }
+
+        // console.log(bai3(5))
+
+
+
+
+        // ************ BÀI 4 ************
+        // function bai4(r) {
+        //     let dienTich = Math.PI*r**2;
+        //     let chuVi = 2*Math.PI*r;
+        //     console.log(`Diện tích hình tròn là: ${dienTich}`);
+        //     console.log(`Chu vi hình tròn là: ${chuVi}`);
+        // }
+
+        // bai4(3)
+
+
+
+
+        // ************ BÀI 5 ************
+        // function bai5(num) {
+        //     if (num > 1) {
+        //         return num*bai5(num - 1);
+        //     } else {
+        //         return 1;
+        //     }
+        // }
+
+        // console.log(bai5(6))
+
+
+
+
+        // ************ BÀI 6 ************
+        // function bai6(symbol) {
+        //     if(typeof symbol === 'number') {
+        //         return true;
+        //     } else return false;
+        // }
+
+        // console.log(bai6('fdsf'));
+
+
+
+
+        // ************ BÀI 7 ************
+        // function bai7(num1, num2, num3) {
+        //     if(num1 < num2 && num1 < num3) {
+        //         return num1;
+        //     } else if (num2 < num3) {
+        //         return num2;
+        //     } else return num3;
+        // }
+
+        // console.log(bai7(5334342,6434323,93333));
+
+
+
+
+        // ************ BÀI 8 ************
+        // function bai8(num) {
+        //     if(num === parseInt(num) && num >= 0 ) {
+        //         return true;
+        //     } else {
+        //         return false
+        //     }
+        // }
+
+        // console.log(bai8(242.42343))
+
+
+
+
+        // ************ BÀI 9 ************
+        // let arr = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe ', 'Regulus'];
+
+        // function bai9(arr) {
+        //     for(let i = 0; i < arr.length / 2; i++) {
+        //         let temp = arr[i];
+        //         arr[i] = arr[arr.length - 1 - i];
+        //         arr[arr.length - 1 - i] = temp;
+        //     }
+        //     return arr;
+        // }
+        // console.log(arr)
+        // console.log(bai9(arr));
+
+
+
+
+        // ************ BÀI 10 ************
+        function bai10(arrString, symbol) {
+            let count = 0;
+            for ( let i = 0; i < arrString.length; i++) {
+                if (arrString[i] === symbol) {
+                    count++;
+                }
+            }
+            return count == 0 ? -1 : count;
+        }
+
+        let string = prompt("Nhập vào chuỗi kí tự:")
+        let symbol = prompt("Nhập vào kí tự:")
+        let arr = string.split('')
+        console.log(string);
+        console.log(symbol);
+        console.log(bai10(arr, symbol))
+
+    </script>
+</body>
+</html>

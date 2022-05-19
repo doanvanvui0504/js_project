@@ -20,14 +20,14 @@
 
 
         // ************BÀI 2************
-        // let number = prompt("Nhập vào chuỗi số:");
-        // let arrNumber = number.split('');
-        // for(let i = 0; i < arrNumber.length - 1; i++) {
-        //     if (arrNumber[i] % 2 == 0 && arrNumber[i+1] % 2 == 0) {
-        //         arrNumber[i] += "-";
-        //     }
-        // }
-        // console.log(arrNumber.join(""));
+        let number = prompt("Nhập vào chuỗi số:");
+        let arrNumber = number.split('');
+        for(let i = 0; i < arrNumber.length - 1; i++) {
+            if (arrNumber[i] % 2 == 0 && arrNumber[i+1] % 2 == 0) {
+                arrNumber[i] += "-";
+            }
+        }
+        console.log(arrNumber.join(""));
 
 
 
