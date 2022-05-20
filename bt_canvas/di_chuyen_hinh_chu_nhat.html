@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <canvas id="myCanvas" width="300px" height="600px" style="border:1px solid #333;"> 
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+
+        const topY = 0;
+        const bottomY = 600;
+
+        let carXposition = 20;
+        let carYposition = 20;
+        let carHeight = 50;
+        let carWidth = 50;
+
+        const context = canvas.getContext("2d");
+
+        function createCar() {
+            context.fillStyle = 'rgb(125, 255, 72)';
+            context.fillRect(carXposition, carYposition, carHeight, carWidth);
+        }
+
+        let yDistance = 1;
+        function moveCar() {
+            context.clearRect(carXposition, carYposition, carHeight, carWidth);
+
+            let isTouchTop = carYposition < topY;
+            let isTouchBottom = carYposition + carHeight > bottomY;
+            if (isTouchTop || isTouchBottom) {
+                yDistance = -yDistance;
+            }
+
+            carYposition += yDistance;
+            createCar();
+        }
+
+        setInterval(moveCar, 10);
+
+    </script>
+</body>
+</html>
