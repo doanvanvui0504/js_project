@@ -49,19 +49,17 @@
                 edit(index) {
                     products[index] = prompt("Sửa tên sản phẩm");
                 },
-                handleDelete(e) {
-                    const deleteBtn = e.target.closest(".delete");
-                    if(deleteBtn) {
-                        const index = deleteBtn.dataset.index;
-                        this.edit(index);
-                        this.render();
-                    }
-                },
                 handleEdit(e) {
                     const editBtn = e.target.closest(".edit");
                     if(editBtn) {
                         const index = editBtn.dataset.index;
                         this.edit(index);
+                        this.render();
+                    }
+                    const deleteBtn = e.target.closest(".delete");
+                    if(deleteBtn) {
+                        const index = deleteBtn.dataset.index;
+                        this.delete(index);
                         this.render();
                     }
                 },
@@ -87,9 +85,7 @@
                         input.focus();
                     }
 
-                    root.onclick = this.handleDelete.bind(this);
                     root.onclick = this.handleEdit.bind(this);
-
                     this.render();
                 }
             }
