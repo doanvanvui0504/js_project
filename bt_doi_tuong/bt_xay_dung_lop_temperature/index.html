@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let nhietDo
+        do {
+            nhietDo = +prompt("Nhập vào nhiệt độ (> -273 độ C):");
+        } while (nhietDo < - 273)
+
+        class Temperature {
+            constructor(nhietDo) {
+                this.nhietDo = nhietDo;
+            };
+
+            changeToF() {
+                console.log(this.nhietDo*9/5 + 32);
+            }
+
+            changeToKevin() {
+                console.log(this.nhietDo + 273.15)
+            }
+        }
+
+        let myTemperature = new Temperature(nhietDo);
+        myTemperature.changeToF();
+        myTemperature.changeToKevin();
+    </script>
+</body>
+</html>

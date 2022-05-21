@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        function Apple() {
+            this.weight = 10;
+            this.Decrease = function() {
+                return --this.weight;
+            };
+            this.isEmpty = function() {
+                if(this.weight == 0) return true;
+                else return false;
+            }
+            this.getWeight = function() {
+                return this.weight;
+            }
+        }
+
+        function Human(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+
+            this.getName = function() { 
+                return this.name; 
+            };
+
+            this.setName = function(name) {
+                this.name = name;
+            }
+
+            this.getWeight = function() { 
+                return this.weight;
+            }
+
+            this.setWeight = function(weight) {
+                this.weight = weight;
+            }
+
+            this.Speak = function () {
+                console.log("Xin chao cac ban!!!")
+            }
+
+            this.isMale = function () {
+                if(this.gender == true) return true;
+                else return false;
+            }
+
+            this.setGender = function (gender) {
+                this.gender = gender;
+            }
+
+            this.checkApple = function (apple) {
+                this.apple = apple;
+                return this.apple.getWeight();
+            }
+
+            this.eatApple = function () {
+                console.log(this.apple.Decrease());
+                return ++this.weight;
+            }
+        }
+
+        let apple = new Apple();
+        // console.log(apple.getWeight()) // log ra khối lượng quả táo
+
+        let human = new Human('Vui', true, 55);
+        console.log(human.checkApple(apple)); // Kiểm tra khối lượng quả táo
+        console.log(human.getName());
+        console.log(human.getWeight());
+        console.log(human.isMale());
+        console.log(human.eatApple(apple));
+
+    </script>
+</body>
+</html>

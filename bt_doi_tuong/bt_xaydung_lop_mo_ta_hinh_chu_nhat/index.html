@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="300" height="300" style="border: 1px solid #ccc"></canvas>
+
+    <script>
+        class Rectangle {
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+            };
+
+            getArea() {
+                console.log(this.width*this.height)
+            };
+
+            getChuVi() {
+                console.log(2*(this.width + this.height))
+            }
+
+            draw() {
+                const context = document.getElementById('myCanvas').getContext('2d');
+
+                context.fillStyle = 'rgb(234, 123, 23)';
+                context.fillRect(50, 50, this.width, this.height);
+            }
+        }
+
+        let myRectangle = new Rectangle(200, 100);
+
+        myRectangle.getArea();
+        myRectangle.getChuVi();
+        myRectangle.draw();
+    </script>
+</body>
+</html>

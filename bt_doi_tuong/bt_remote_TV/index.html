@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Thong tin cua Tv</h2>
+    <p id="info_television"></p>
+    <button id="change" onclick="changeChannel1()">Chuyen kenh!</button>
+    <button onclick="upVolum()">Tang am luong!</button>
+    <button onclick="downVolum()">Giam am luong!</button>
+    <button onclick="OnOff()">Bat tat TV</button>
+
+
+    <script>
+        class Remote{
+            constructor(id) {
+                this.id = id;
+            }
+            changeChannel(){
+                let channel = parseInt(prompt("Ban hay nhap kenh muon bat"));
+                return channel;
+            }
+            increaseVolum(Tv){
+                return Tv + 1;
+            }
+            reduceVolum(Tv){
+                return Tv - 1;
+            }
+        }
+        class Television{
+            constructor(channel,volum,onoff,remote) {
+                this.channel = channel;
+                this.volum = volum;
+                this.onoff = onoff;
+                this.remote = remote;
+            }
+            getOnOff(){
+                return !this.onoff
+            }
+            changeChannelTV(){
+                if(this.onoff) {
+                    this.channel = this.remote.changeChannel();
+                }
+                else {
+                    alert("Ti vi da tat");
+                }
+            }
+            increaseVolumTV(){
+                if(this.onoff) {
+                    this.volum = this.remote.increaseVolum(this.volum);
+                }
+                else {
+                    alert("Ti vi da tat roi");
+                }
+            }
+            reduceVolumTV(){
+                if(this.onoff) {
+                    this.volum = this.remote.reduceVolum(this.volum);
+                }
+                else {
+                    alert("Ti vi da tat roi");
+                }
+            }
+        }
+
+        // Khai bao cac doi tuong
+        let remote = new Remote(1);
+        let television = new Television(5,30,true,remote);
+        function display() {
+            document.getElementById("info_television").innerHTML = "Ti vi dang bat: " +television.onoff +"<br> Ti vi dang bat kenh: " +television.channel +"<br> Am luong cua ti vi la: " +television.volum;
+        }
+        display();
+        function changeChannel1() {
+            television.changeChannelTV();
+            display();
+        }
+        function upVolum() {
+            television.increaseVolumTV();
+            display();
+        }
+        function downVolum() {
+            television.reduceVolumTV();
+            display();
+        }
+        function OnOff() {
+            television.onoff = !television.onoff;
+            display();
+        }
+    </script>
+</body>
+</html>
