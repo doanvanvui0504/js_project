@@ -33,6 +33,7 @@
         //     for (let i = 0; i < arr1.length; i++) {
         //         if (arr1[i] == string) {
         //             index = i;
+        //             break;
         //         }
         //     }
         //     return (typeof index) === 'undefined' ? 'Không có ngôi sao phù hợp' : arr2[index];
@@ -121,39 +122,39 @@
 
 
         // ************ BÀI 9 ************
-        // let arr = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe ', 'Regulus'];
+        let arr = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe ', 'Regulus'];
 
-        // function bai9(arr) {
-        //     for(let i = 0; i < arr.length / 2; i++) {
-        //         let temp = arr[i];
-        //         arr[i] = arr[arr.length - 1 - i];
-        //         arr[arr.length - 1 - i] = temp;
-        //     }
-        //     return arr;
-        // }
-        // console.log(arr)
-        // console.log(bai9(arr));
+        function swap(arr) {
+            for(let i = 0; i < arr.length / 2; i++) {
+                let temp = arr[i];
+                arr[i] = arr[arr.length - 1 - i];
+                arr[arr.length - 1 - i] = temp;
+            }
+            return arr;
+        }
+        console.log(arr)
+        console.log(swap(arr));
 
 
 
 
         // ************ BÀI 10 ************
-        function bai10(arrString, symbol) {
-            let count = 0;
-            for ( let i = 0; i < arrString.length; i++) {
-                if (arrString[i] === symbol) {
-                    count++;
-                }
-            }
-            return count == 0 ? -1 : count;
-        }
+        // function bai10(arrString, symbol) {
+        //     let count = 0;
+        //     for ( let i = 0; i < arrString.length; i++) {
+        //         if (arrString[i] === symbol) {
+        //             count++;
+        //         }
+        //     }
+        //     return count == 0 ? -1 : count;
+        // }
 
-        let string = prompt("Nhập vào chuỗi kí tự:")
-        let symbol = prompt("Nhập vào kí tự:")
-        let arr = string.split('')
-        console.log(string);
-        console.log(symbol);
-        console.log(bai10(arr, symbol))
+        // let string = prompt("Nhập vào chuỗi kí tự:")
+        // let symbol = prompt("Nhập vào kí tự:")
+        // let arr = string.split('')
+        // console.log(string);
+        // console.log(symbol);
+        // console.log(bai10(arr, symbol))
 
     </script>
 </body>
