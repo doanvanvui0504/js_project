@@ -21,41 +21,74 @@
             padding-left: 0;
             list-style: none;
         }
+        #product-name {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        #total {
+            color: red;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
+    <h2 id="heading">ADD New Product</h2>
     <input type="text" id="input" placeholder="New Product">
     <button id="submit">ADD</button>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px; margin-bottom: 10px;">
+        <div id="product-name">Product Name</div>
+        <span id="total"></span>
+    </div>
     <ul id="root"></ul>
 
     <script>
         const $ = document.querySelector.bind(document);
         const $$ = document.querySelectorAll.bind(document);
 
+        const heading = $('#heading');
         const submit = $('#submit');
         const input = $('#input');
         const root = $('#root');
+        const total = $('#total');
 
         const app = (() => {
             const products = ['BMW', 'IPhone 8', 'LED RGB'];
 
             return {
+                dataEdit: {
+                    isEdit: false,
+                    index: null,
+                },
+
                 add(product) {
-                    products.push(product);
+                    if(this.dataEdit.isEdit) {
+                        products[this.dataEdit.index] = product;
+                        heading.innerHTML = "ADD New Product"
+                        this.dataEdit.isEdit = false;
+                    } else {
+                        products.push(product);
+                    }
                 },
                 delete(index) {
                     products.splice(index, 1);
                 },
                 edit(index) {
-                    products[index] = prompt("Sửa tên sản phẩm");
+                    input.value = products[index];
+                    input.focus();
                 },
                 handleEdit(e) {
                     const editBtn = e.target.closest(".edit");
                     if(editBtn) {
+                        heading.innerHTML = "Sửa lại tên của sản phẩm!!!"
                         const index = editBtn.dataset.index;
+                        this.dataEdit.isEdit = true;
+                        this.dataEdit.index = index;
                         this.edit(index);
                         this.render();
                     }
+
+
                     const deleteBtn = e.target.closest(".delete");
                     if(deleteBtn) {
                         const index = deleteBtn.dataset.index;
@@ -66,12 +99,13 @@
                 render() {
                     const html = products.map((product, index) => `
                         <li style="margin-top: 20px; display: flex; justify-content: space-between;">
-                        <span style="width: 250px">${product}</span>
+                        <span style="width: 250px">${index + 1}. ${product}</span>
                         <span class="edit" data-index="${index}"><button>Edit</button></span>
                         <span class="delete" data-index="${index}"><button>Delete</button></span>
                         </li>`
                     ).join('');
-
+                    
+                    total.innerHTML = `${products.length} products`
                     root.innerHTML = html;
                 },
                 init() {
