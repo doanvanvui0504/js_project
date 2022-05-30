@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.main {
+    margin: auto;
+}
+
+span {
+    font-size: 22px;
+    display: inline-block;
+    margin: 3px;
+    width: 26px;
+    height: 26px;
+    border: 1px solid #333;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+    background-color: aquamarine;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+button {
+    min-width: 120px;
+    border: none;
+    outline: none;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: violet;
+    margin-left: 50px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
+}
+
+button:hover {
+    cursor: pointer;
+}
