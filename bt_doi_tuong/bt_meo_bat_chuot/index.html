@@ -11,24 +11,31 @@
 
 
     <script>
-        function Rat(name, weight, speed, status) {
-            this.name = name;
-            this.weight = weight;
-            this.speed = speed;
-            this.status = status;
-            this.behavior = function() {
+        class Rat {
+            constructor(name, weight, speed, status) {
+                this.name = name
+                this.weight = weight
+                this.speed = speed
+                this.status = status
+            }
+
+            behavior() {
                 console.log("chit, chit");
             }
         }
 
-        function Cat (name, weight, maxSpeed) {
-            this.name = name;
-            this.weight = weight;
-            this.maxSpeed = maxSpeed;
-            this.behavior = function() {
+        class Cat{
+            constructor(name, weight, maxSpeed) {
+                this.name = name;
+                this.weight = weight;
+                this.maxSpeed = maxSpeed;
+            }
+
+            behavior() {
                 console.log("meo, meo");
             }
-            this.catchRat = function (rat) {
+
+            catchRat(rat) {
                 this.rat = rat;
                 if(this.maxSpeed > this.rat.speed) {
                     return true;
@@ -36,7 +43,8 @@
                     return false;
                 }
             }
-            this.eatRat = function () {
+
+            eatRat(rat) {
                 if (this.catchRat(rat)) {
                     console.log("Đã bắt được chuột");
                     if(this.rat.status) {
@@ -58,8 +66,8 @@
         let cat = new Cat("Tom", 25, 21);
         console.log("Khối lượng của mèo ban đầu:", cat.weight);
 
-        cat.eatRat();
-        console.log("Khối lượng sau khi bắt chuột:", cat.weight);
+        cat.eatRat(rat);
+        console.log("Khối lượng sau của mèo khi bắt chuột:", cat.weight);
 
     </script>
 </body>

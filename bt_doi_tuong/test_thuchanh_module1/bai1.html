@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let arr = [3, 7, 10, 9, 4, 4, 5, 3, 10]
+
+        function getPointTop3(arr) {
+            sortArr(arr)
+            
+            //Xóa các phần tử trùng nhau trong mảng
+            let newArr = []
+            arr.forEach(function(item) {
+                if(!newArr.includes(item)) {
+                    newArr.push(item) 
+                }
+            })
+
+            document.write(`Mảng điểm: ${arr} <br> Điểm cao thứ 3 là: ${newArr.length > 3 ? newArr[newArr.length - 3] : newArr[0]}`)
+        }
+
+        function sortArr(arr) {
+            // Sắp xếp lại mảng theo thứ tự tăng dần
+            for (let i = 0; i < arr.length; i++) {
+                for(let j = 0 ; j < arr.length - 1; j++) {
+                    if(arr[j] > arr[j+1]) {
+                        let temp = arr[j]
+                        arr[j] = arr[j+1]
+                        arr[j+1] = temp
+                    }
+                }
+            }
+        }
+
+        getPointTop3(arr)
+    </script>
+</body>
+</html>

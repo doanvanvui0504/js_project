@@ -67,7 +67,7 @@
 
         // Khai bao cac doi tuong
         let remote = new Remote(1);
-        let television = new Television(5,30,true,remote);
+        let television = new Television(5,0,true,remote);
         function display() {
             document.getElementById("info_television").innerHTML = "Ti vi dang bat: " +television.onoff +"<br> Ti vi dang bat kenh: " +television.channel +"<br> Am luong cua ti vi la: " +television.volum;
         }

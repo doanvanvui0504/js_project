@@ -7,47 +7,47 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h3>Bài tập công tắc bóng đèn</h3>
+    <img src="img/pic_bulboff.gif" id="lamp">
+    <br>
+    <h3 id="result">Bóng đèn đang tắt</h3>
+    <button onclick="turnOn_turnOff()">TurnOff_TurnOn</button>
 
 
     <script>
-        function switchButton () {
-            this.connectToLamp = function(ElectricLamp) {
-                this.ElectricLamp = ElectricLamp;
+        class SwitchButton {
+            constructor(status) {
+                this.status = status;
             }
 
-            this.switchOff = function () {
-                this.status = false;
-            }
-
-            this.switchOn = function () {
-                this.status = true;
+            turnOn_turnOff() {
+                this.status = !this.status;
             }
         }
 
-        function ElectricLamp() {
-            this.turnOff = function (status) {
-                return this.status = status;
+        class Light {
+            constructor(switchButton) {
+                this.button = switchButton;
             }
 
-            this.turnOn = function (status) {
-                return this.status = status;
+            switch() {
+                if (this.button.status) {
+                    document.getElementById("lamp").src = "img/pic_bulbon.gif";
+                    document.getElementById("result").innerText = "Bóng đèn đang bật"
+                } else {
+                    document.getElementById("lamp").src = "img/pic_bulboff.gif";
+                    document.getElementById("result").innerText = "Bóng đèn đang tắt"
+                }
             }
         }
 
-        let Lamp = new ElectricLamp();
+        let switchButton = new SwitchButton(false);
+        let lamp1 = new Light(switchButton);
 
-        let SwitchButton = new switchButton() 
-        SwitchButton.connectToLamp(Lamp);
-        
-
-        // Bật
-        SwitchButton.switchOn();
-        console.log(SwitchButton.ElectricLamp.turnOn(SwitchButton.status));
-
-        // Tắt
-        SwitchButton.switchOff();
-        console.log(SwitchButton.ElectricLamp.turnOff(SwitchButton.status));
+        function turnOn_turnOff() {
+            switchButton.turnOn_turnOff();
+            lamp1.switch();
+        }
 
     </script>
 </body>

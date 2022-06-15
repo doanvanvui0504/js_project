@@ -10,66 +10,71 @@
     
 
     <script>
-        function Apple() {
-            this.weight = 10;
-            this.Decrease = function() {
+        class Apple {
+            constructor(weight) {
+                this.weight = 10;
+            }
+
+            Decrease() {
                 return --this.weight;
             };
-            this.isEmpty = function() {
+            isEmpty() {
                 if(this.weight == 0) return true;
                 else return false;
             }
-            this.getWeight = function() {
+            getWeight() {
                 return this.weight;
             }
         }
 
-        function Human(name, gender, weight) {
-            this.name = name;
-            this.gender = gender;
-            this.weight = weight;
-
-            this.getName = function() { 
-                return this.name; 
-            };
-
-            this.setName = function(name) {
-                this.name = name;
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name
+                this.gender = gender
+                this.weight = weight
             }
 
-            this.getWeight = function() { 
-                return this.weight;
+            getName() { 
+                return this.name
             }
 
-            this.setWeight = function(weight) {
-                this.weight = weight;
+            setName(name) {
+                this.name = name
             }
 
-            this.Speak = function () {
+            getWeight() { 
+                return this.weight
+            }
+
+            setWeight(weight) {
+                this.weight = weight
+            }
+
+            speak() {
                 console.log("Xin chao cac ban!!!")
             }
 
-            this.isMale = function () {
+            isMale() {
                 if(this.gender == true) return true;
-                else return false;
+                else return false
             }
 
-            this.setGender = function (gender) {
-                this.gender = gender;
+            setGender(gender) {
+                this.gender = gender
             }
 
-            this.checkApple = function (apple) {
-                this.apple = apple;
-                return this.apple.getWeight();
+            checkApple(apple) {
+                this.apple = apple
+                return this.apple.getWeight()
             }
 
-            this.eatApple = function () {
+            eatApple() {
                 console.log(this.apple.Decrease());
                 return ++this.weight;
             }
         }
 
-        let apple = new Apple();
+        let apple = new Apple(10);
         // console.log(apple.getWeight()) // log ra khối lượng quả táo
 
         let human = new Human('Vui', true, 55);
